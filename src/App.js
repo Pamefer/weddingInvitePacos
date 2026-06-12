@@ -176,8 +176,8 @@ function App() {
               initial="hidden"
               animate="visible"
             >
-              <motion.p className="pame" variants={itempc}>Pame</motion.p>
-              <motion.p className="cosme" variants={itempc}>& Cosme</motion.p>
+              <motion.p className="pame" variants={itempc}>Rose</motion.p>
+              <motion.p className="cosme" variants={itempc}>& Paul</motion.p>
             </motion.div>
 
             <div className="quoteContainer">
@@ -193,7 +193,7 @@ function App() {
                   </motion.span>
                 ))}
               </motion.p>
-              <p className="dateFirst">09 · 13 · 2025</p>
+              <p className="dateFirst">08 · 20 · 2025</p>
             </div>
           </div>
 
@@ -263,14 +263,14 @@ function App() {
               <img src={anillos} alt="anillos" ></img>
             </div>
             <div>
-              <p>Sábado, 13 de septiembre</p>
+              <p>Sábado, 20 de agosto</p>
               <p>4:00 PM</p>
-              <p className="smallText">476 Devon St. Kearny, New Jersey</p>
+              <p className="smallText">123 Devon St. Kearny, New Jersey</p>
 
             </div>
 
             <a
-              href="https://www.google.com/maps/place/476+Devon+St,+Kearny,+NJ+07032"
+              href="https://www.google.com/maps/place/123+Devon+St,+Kearny,+NJ+07032"
               target="_blank"
               rel="noopener noreferrer"
               className="maps-button buttonweb"
@@ -316,7 +316,7 @@ function App() {
             </div>
 
             <a
-              href="https://forms.gle/ZBe4WxwEsAmUYhLw7"
+              href="https://forms.gle/MyyMdJCcCp9WRboX7"
               target="_blank"
               rel="noopener noreferrer"
               className="maps-button buttonweb bola"
