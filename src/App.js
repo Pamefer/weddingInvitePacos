@@ -8,14 +8,13 @@ import lapromesa from './static/suertetenerte2.m4a';
 import anillos from './static/anillos.png';
 import bola from './static/bola.png';
 
-import principalPic from './static/portada_optimized.webp';
-import nieve from './static/nieve2.jpg';
-import anillospic from './static/DSC_0892.jpg';
-import manitos from './static/manitos_3.jpg';
-import foto8 from './static/DSC_0884.jpg';
-import foto9 from './static/DSC_0868.jpg';
-import foto10 from './static/DSC_0824.jpg';
-import gradas from './static/edited.jpg';
+import principalPic from './static/main.jpg';
+import nieve from './static/m_c1.jpg';
+import anillospic from './static/m_c2.jpg';
+import foto8 from './static/m_c4.jpg';
+import foto9 from './static/mc5.jpg';
+import foto10 from './static/m_c6.jpg';
+import gradas from './static/mc_8.jpg';
 import sobre from './static/sobre_optimized.webp';
 
 import './App.css';
@@ -349,7 +348,7 @@ function App() {
             <p className="subtitle cursiveTextMea">Gracias por acompañarnos en este día tan especial para nosotros.</p>
 
           </motion.div>
-          <img src={manitos} alt="manosfinal" className="manitos"></img>
+          <img src={gradas} alt="manosfinal" className="gradas"></img>
         </div>
       }
 

@@ -2,10 +2,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Carousel.css';
-import foto1 from './static/DSC_0757.jpg';
-import foto3 from './static/DSC_0770.jpg';
-import foto4 from './static/DSC_0911.jpg';
-import foto7 from './static/DSC_0937.jpg';
+import foto1 from './static/m_c2.jpg';
+import foto3 from './static/mc_8.jpg';
+import foto4 from './static/m_c6.jpg';
+import foto7 from './static/mc_7.jpg';
 
 const images = [
     foto1, foto3, foto4, foto7
