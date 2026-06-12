@@ -1,8 +1,8 @@
-# BODA PAME Y COSME INVITE
+# Invitation Pacos
 
-## Invitation for my wedding
+## Invitation
 
-During a sabbatical from software development, I got engaged and decided to create a digital invitation for our wedding. It was a fun personal project that allowed me to incorporate the music, colors, and design elements that reflected our style. Building it from scratch was both enjoyable and rewarding, and I'm proud of the final result.
+My first template for my wedding.
 
 ## How is the page?
 
