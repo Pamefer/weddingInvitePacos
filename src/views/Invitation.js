@@ -17,30 +17,16 @@ import foto10 from '../static/m_c6.jpg';
 import gradas from '../static/mc_8.jpg';
 
 import '../App.css';
+import Pause from '../components/Pause';
+import Play from '../components/Play';
+import { LABELS, EVENT } from '../labels';
 
-const Pause = ({ onPlayerClick }) => {
-    return (
-        <svg className="buttonMusic" viewBox="0 0 60 60" onClick={onPlayerClick}>
-            <polygon points="0,0 15,0 15,60 0,60" />
-            <polygon points="25,0 40,0 40,60 25,60" />
-        </svg>
-    )
-}
-
-const Play = ({ onPlayerClick }) => {
-    return (
-        <svg className="buttonMusic" viewBox="0 0 60 60" onClick={onPlayerClick}>
-            <polygon points="0,0 50,30 0,60" />
-        </svg>
-    )
-}
 function Invitation() {
     const audioRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [hasInteracted, setHasInteracted] = useState(false);
 
-    const text = "¡Nos casamos!";
-    const letters = Array.from(text);
+    const letters = Array.from(LABELS.nosCasamos);
 
     const container = {
         hidden: { opacity: 0 },
@@ -165,8 +151,8 @@ function Invitation() {
                         initial="hidden"
                         animate="visible"
                     >
-                        <motion.p className="pame" variants={itempc}>Rose</motion.p>
-                        <motion.p className="cosme" variants={itempc}>& Paul</motion.p>
+                        <motion.p className="pame" variants={itempc}>{EVENT.bride}</motion.p>
+                        <motion.p className="cosme" variants={itempc}>{EVENT.groom}</motion.p>
                     </motion.div>
 
                     <div className="quoteContainer">
@@ -182,12 +168,12 @@ function Invitation() {
                                 </motion.span>
                             ))}
                         </motion.p>
-                        <p className="dateFirst">08 · 20 · 2025</p>
+                        <p className="dateFirst">{EVENT.date}</p>
                     </div>
                 </div>
 
                 <div className="secondSection normalText">
-                    <p>Lo que empezó como una amistad creció con el tiempo... se volvió complicidad, amor, y ahora, un para siempre.</p>
+                    <p>{LABELS.initialPhrase}</p>
                     <div >
                         <motion.img
                             src={nieve}
@@ -209,10 +195,10 @@ function Invitation() {
                         />
                     </div>
                     <p>
-                        Con la promesa más sincera de elegirnos cada día
+                        {LABELS.secondPhrase}
                     </p>
                     <p>
-                        Tenemos el agrado de invitarte a
+                        {LABELS.thirdPhrase}
                     </p>
                     <div className="nuestraBoda">
 
@@ -223,7 +209,7 @@ function Invitation() {
                             transition={{ duration: 5, delay: 0.5 }}
                             whileInView={{ opacity: 1, y: 0 }}
                         >
-                            Nuestra
+                            {LABELS.nuestra}
                         </motion.p>
                         <motion.p
                             className="cursiveTextMea line-end"
@@ -232,7 +218,7 @@ function Invitation() {
                             viewport={{ once: true, amount: 0.7 }}
                             whileInView={{ opacity: 1, y: 0 }}
                         >
-                            Boda
+                            {LABELS.boda}
                         </motion.p>
                     </div>
 
@@ -247,30 +233,30 @@ function Invitation() {
                     transition={{ duration: 1.2, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.1 }}
                     whileInView={{ opacity: 1, y: 0 }}>
-                    <p className="subtitle cursiveTextMea">Ceremonia y Recepción</p>
+                    <p className="subtitle cursiveTextMea">{LABELS.ceremonia}</p>
                     <div className="iconos">
                         <img src={anillos} alt="anillos" ></img>
                     </div>
                     <div>
-                        <p>Sábado, 20 de agosto</p>
-                        <p>4:00 PM</p>
-                        <p className="smallText">123 Devon St. Kearny, New Jersey</p>
+                        <p>{EVENT.dateLetters}</p>
+                        <p>{EVENT.hour}</p>
+                        <p className="smallText">{EVENT.address}</p>
 
                     </div>
 
                     <a
-                        href="https://www.google.com/maps/place/123+Devon+St,+Kearny,+NJ+07032"
+                        href={EVENT.linkAddress}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="maps-button buttonweb"
                     >
-                        Ver ubicación
+                        {LABELS.verUbicacion}
                     </a>
                 </motion.div>
                 <div className="section fourthSection normalText">
-                    <p className="subtitle cursiveTextMea">Código de vestimenta</p>
-                    <p>FORMAL AL AIRE LIBRE</p>
-                    <p>Evitar colores</p>
+                    <p className="subtitle cursiveTextMea">{LABELS.codigoVestimenta}</p>
+                    <p>{LABELS.tipoVestimenta}</p>
+                    <p>{LABELS.evitar}</p>
                     <div className="colorsWedding">
                         <div className="circle blanco"></div>
                         <div className="circle rojo"></div>
@@ -286,11 +272,9 @@ function Invitation() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.4 }}>
-                    <p className="subtitle cursiveTextMea">Regalos</p>
+                    <p className="subtitle cursiveTextMea">{LABELS.regalos}</p>
 
-                    <p>¡Su presencia es el mejor regalo para nosotros!
-                        Si aún desean obsequiarnos un detalle para nuestra nueva etapa en matrimonio,
-                        un sobre cerrado será bienvenido ese día con mucho cariño.</p>
+                    <p>{LABELS.suPresencia}</p>
                 </motion.div>
                 <div className="picturesInline">
                     <img src={foto8} alt="manos" className="normalPic"></img>
@@ -299,7 +283,7 @@ function Invitation() {
 
                 </div>
                 <div className="section sixthSection normalText">
-                    <p className="subtitle cursiveTextMea">Nos ayudas con la playlist? </p>
+                    <p className="subtitle cursiveTextMea">{LABELS.nosAyudasPlaylist} </p>
                     <div className="iconos">
                         <img src={bola} alt="bola"></img>
                     </div>
@@ -310,21 +294,21 @@ function Invitation() {
                         rel="noopener noreferrer"
                         className="maps-button buttonweb bola"
                     >
-                        Agregar una canción
+                        {LABELS.cancion}
                     </a>
 
                 </div>
                 <Carousel />
                 <div className="section seventhSection normalText">
-                    <p className="subtitle">¿Nos acompañas?</p>
-                    <p>Por favor confírmanos tu asistencia con un mensajito. ¡Nos haría mucha ilusión saber que vienes!</p>
+                    <p className="subtitle">{LABELS.nosAcompanas}</p>
+                    <p>{LABELS.confirmanos}</p>
                     <a
-                        href="https://wa.me/19735835202?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20a%20su%20boda%20el%2013%20de%20septiembre%20🥰"
+                        href={EVENT.linkWhatsapp}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="maps-button buttonweb bola"
                     >
-                        Confirmar
+                        {LABELS.confirmar}
                     </a>
                 </div>
                 <motion.div
@@ -334,7 +318,7 @@ function Invitation() {
                     transition={{ duration: 2, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.5 }}
                 >
-                    <p className="subtitle cursiveTextMea">Gracias por acompañarnos en este día tan especial para nosotros.</p>
+                    <p className="subtitle cursiveTextMea">{LABELS.gracias}</p>
 
                 </motion.div>
                 <img src={gradas} alt="manosfinal" className="gradas"></img>
