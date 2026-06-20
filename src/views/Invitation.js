@@ -289,7 +289,7 @@ function Invitation() {
                     </div>
 
                     <a
-                        href="https://forms.gle/MyyMdJCcCp9WRboX7"
+                        href={EVENT.linkRSPV}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="maps-button buttonweb bola"

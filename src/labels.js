@@ -27,6 +27,7 @@ export const EVENT = {
     dateLetters: "Sábado, 20 de agosto",
     hour: "4:00 PM",
     address: "123 Devon St. Kearny, New Jersey",
+    linkRSPV: "https://forms.gle/MyyMdJCcCp9WRboX7",
     linkAddress: "https://www.google.com/maps/place/123+Devon+St,+Kearny,+NJ+07032",
     linkWhatsapp: "https://wa.me/19735835202?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20a%20su%20boda%20el%2013%20de%20septiembre%20🥰"
 };
