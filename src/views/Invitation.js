@@ -148,12 +148,10 @@ function Invitation() {
 
     return (
         <div className="App">
-
+            <audio ref={audioRef} loop preload="metadata">
+                <source src={lapromesa} />
+            </audio>
             <div>
-                <audio ref={audioRef} loop preload="metadata">
-                    <source src={lapromesa} />
-                </audio>
-
                 <div className="firstSection">
                     <img src={principalPic} alt="pameycos" className="background-image" />
 
