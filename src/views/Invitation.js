@@ -26,9 +26,9 @@ function Invitation() {
     const [isPlaying, setIsPlaying] = useState(false);
     const [hasInteracted, setHasInteracted] = useState(false);
 
-    const letters = Array.from(LABELS.nosCasamos);
+    const nosCasamosArray = Array.from(LABELS.nosCasamos);
 
-    const container = {
+    const containerMainDate = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -38,7 +38,7 @@ function Invitation() {
         },
     };
 
-    const child = {
+    const letterAnimation = {
         hidden: { opacity: 0, y: 10 },
         visible: {
             opacity: 1, y: 0,
@@ -80,7 +80,6 @@ function Invitation() {
                 setHasInteracted(true);
             }
         };
-
 
         const handleVisibilityChange = () => {
             if (document.hidden) {
@@ -157,13 +156,13 @@ function Invitation() {
 
                     <div className="quoteContainer">
                         <motion.p
-                            variants={container}
+                            variants={containerMainDate}
                             initial="hidden"
                             animate="visible"
                             className="quotePhrase"
                         >
-                            {letters.map((char, index) => (
-                                <motion.span key={index} variants={child}>
+                            {nosCasamosArray.map((char, index) => (
+                                <motion.span key={index} variants={letterAnimation}>
                                     {char}
                                 </motion.span>
                             ))}

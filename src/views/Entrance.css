@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+}
+.fullscreen-cover {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-image-sobre {
+  width: unset;
+  height: 100%;
+}
+@media (max-width: 500px) {
+  .background-image-sobre {
+    position: fixed; /* fixed makes it cover the viewport even during scroll */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+    pointer-events: none; /* so clicks pass through */
+  }
+}
