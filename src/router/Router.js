@@ -1,18 +1,16 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom';
-import { TransitionProvider } from '../context/transitionContext';
-import TransitionComponent from '../components/Transition';
+import { Switch, Route } from 'react-router-dom';
 import App from '../App';
 
 const Router = () => {
     return (
-        <Routes>
-            <Route>
-                <TransitionComponent>
-                    <App />
-                </TransitionComponent>
-            </Route>
-        </Routes>
+        <Route
+            render={() => (
+                <Switch>
+                    <Route path="/roseandpaul" element={<App />} />
+                </Switch>
+            )}
+        />
     );
 };
 
