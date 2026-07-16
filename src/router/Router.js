@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
-import RosePaul from '../RosePaul';
 import App from '../App';
+import CoupleWrapper from '../CoupleWrapper';
 
 const Router = () => {
     return (
         <Routes>
             <Route path="/" element={<App />} />
-            <Route path="/roseandpaul" element={<RosePaul />} />
+            <Route path="/:coupleSlug" element={<CoupleWrapper />} />
 
         </Routes>
 
