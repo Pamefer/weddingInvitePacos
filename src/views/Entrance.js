@@ -1,5 +1,5 @@
-import sobre from '../static/sobre_optimized.webp';
 import './Entrance.css';
+import { MEDIA } from '../labels';
 
 const Entrance = ({ setIsFirstTime }) => {
 
@@ -9,7 +9,7 @@ const Entrance = ({ setIsFirstTime }) => {
                 className="fullscreen-cover"
                 onClick={() => setIsFirstTime(false)}
             >
-                <img src={sobre} alt="sobre principal" className="background-image-sobre" />
+                <img src={MEDIA.sobre_optimized} alt="sobre principal" className="background-image-sobre" />
             </div>
         </div>
 

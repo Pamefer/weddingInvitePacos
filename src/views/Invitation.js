@@ -3,23 +3,10 @@ import { motion } from 'framer-motion';
 
 import Carousel from './Carousel';
 
-import lapromesa from '../static/suertetenerte2.m4a';
-
-import anillos from '../static/anillos.png';
-import bola from '../static/bola.png';
-
-import principalPic from '../static/main.jpg';
-import nieve from '../static/m_c1.jpg';
-import anillospic from '../static/m_c2.jpg';
-import foto8 from '../static/m_c4.jpg';
-import foto9 from '../static/mc5.jpg';
-import foto10 from '../static/m_c6.jpg';
-import gradas from '../static/mc_8.jpg';
-
 import '../App.css';
 import Pause from '../components/Pause';
 import Play from '../components/Play';
-import { LABELS, EVENT } from '../labels';
+import { LABELS, EVENT, MEDIA } from '../labels';
 
 function Invitation() {
     const audioRef = useRef(null);
@@ -134,11 +121,11 @@ function Invitation() {
     return (
         <div className="App">
             <audio ref={audioRef} loop preload="metadata">
-                <source src={lapromesa} />
+                <source src={MEDIA.song} />
             </audio>
             <div>
                 <div className="firstSection">
-                    <img src={principalPic} alt="pameycos" className="background-image" />
+                    <img src={MEDIA.main} alt="pameycos" className="background-image" />
 
                     <div className="audio-controls">
                         {isPlaying ? <Pause onPlayerClick={handlePause} /> : <Play onPlayerClick={handlePlay} />}
@@ -175,7 +162,7 @@ function Invitation() {
                     <p>{LABELS.initialPhrase}</p>
                     <div >
                         <motion.img
-                            src={nieve}
+                            src={MEDIA.m_c1}
                             alt="Foto especial"
                             className="centralSquare"
                             initial={{
@@ -222,7 +209,7 @@ function Invitation() {
                     </div>
 
                     <div >
-                        <img src={anillospic} alt="manos" className="centralCircle"></img>
+                        <img src={MEDIA.m_c2} alt="manos" className="centralCircle"></img>
                     </div>
                 </div>
 
@@ -234,7 +221,7 @@ function Invitation() {
                     whileInView={{ opacity: 1, y: 0 }}>
                     <p className="subtitle cursiveTextMea">{LABELS.ceremonia}</p>
                     <div className="iconos">
-                        <img src={anillos} alt="anillos" ></img>
+                        <img src={MEDIA.anillos} alt="anillos" ></img>
                     </div>
                     <div>
                         <p>{EVENT.dateLetters}</p>
@@ -263,7 +250,7 @@ function Invitation() {
                     </div>
                 </div>
                 <div className="container-gradas">
-                    <img src={gradas} alt="manos" className="gradas"></img>
+                    <img src={MEDIA.m_c8} alt="manos" className="gradas"></img>
                 </div>
                 <motion.div
                     className="section fifthSection normalText"
@@ -276,15 +263,15 @@ function Invitation() {
                     <p>{LABELS.suPresencia}</p>
                 </motion.div>
                 <div className="picturesInline">
-                    <img src={foto8} alt="manos" className="normalPic"></img>
-                    <img src={foto10} alt="manos" className="normalPic"></img>
-                    <img src={foto9} alt="manos" className="normalPic"></img>
+                    <img src={MEDIA.m_c4} alt="manos" className="normalPic"></img>
+                    <img src={MEDIA.m_c6} alt="manos" className="normalPic"></img>
+                    <img src={MEDIA.m_c5} alt="manos" className="normalPic"></img>
 
                 </div>
                 <div className="section sixthSection normalText">
                     <p className="subtitle cursiveTextMea">{LABELS.nosAyudasPlaylist} </p>
                     <div className="iconos">
-                        <img src={bola} alt="bola"></img>
+                        <img src={MEDIA.bola} alt="bola"></img>
                     </div>
 
                     <a
@@ -320,7 +307,7 @@ function Invitation() {
                     <p className="subtitle cursiveTextMea">{LABELS.gracias}</p>
 
                 </motion.div>
-                <img src={gradas} alt="manosfinal" className="gradas"></img>
+                <img src={MEDIA.m_c8} alt="manosfinal" className="gradas"></img>
             </div>
 
         </div >

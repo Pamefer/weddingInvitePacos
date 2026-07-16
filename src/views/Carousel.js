@@ -2,14 +2,14 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Carousel.css';
-import foto1 from '../static/m_c2.jpg';
-import foto3 from '../static/mc_8.jpg';
-import foto4 from '../static/m_c6.jpg';
-import foto7 from '../static/mc_7.jpg';
+import { MEDIA } from '../labels';
+
 
 const images = [
-    foto1, foto3, foto4, foto7
-
+    MEDIA.m_c2,
+    MEDIA.m_c8,
+    MEDIA.m_c6,
+    MEDIA.m_c7
 ];
 
 export default function Carousel() {

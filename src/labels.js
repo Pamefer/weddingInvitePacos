@@ -31,3 +31,19 @@ export const EVENT = {
     linkAddress: "https://www.google.com/maps/place/123+Devon+St,+Kearny,+NJ+07032",
     linkWhatsapp: "https://wa.me/19735835202?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20a%20su%20boda%20el%2013%20de%20septiembre%20🥰"
 };
+
+const BASE = process.env.PUBLIC_URL;
+export const MEDIA = {
+    anillos: `${BASE}/roseandpaul/anillos.png`,
+    bola: `${BASE}/roseandpaul/bola.png`,
+    main: `${BASE}/roseandpaul/main.jpg`,
+    m_c1: `${BASE}/roseandpaul/m_c1.jpg`,
+    m_c2: `${BASE}/roseandpaul/m_c2.jpg`,
+    m_c4: `${BASE}/roseandpaul/m_c4.jpg`,
+    m_c5: `${BASE}/roseandpaul/mc5.jpg`,
+    m_c6: `${BASE}/roseandpaul/m_c6.jpg`,
+    m_c7: `${BASE}/roseandpaul/m_c7.jpg`,
+    m_c8: `${BASE}/roseandpaul/mc_8.jpg`,
+    sobre_optimized: `${BASE}/roseandpaul/sobre_optimized.webp`,
+    song: `${BASE}/roseandpaul/suertetenerte2.m4a`,
+}
