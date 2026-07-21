@@ -1,19 +1,44 @@
 import './App.css';
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { useGSAP } from '@gsap/react';
+import { SplitText } from 'gsap/SplitText';
 
 import TransitionContext from './context/TransitionContext';
-
+gsap.registerPlugin(SplitText, ScrollTrigger, ScrollToPlugin);
 export default function App() {
     const main = useRef();
-    const { completed } = useContext(TransitionContext);
+    const titleRef = useRef();
+    const { completed, toggleCompleted } = useContext(TransitionContext);
+
     const scrollTween = useRef();
     const snapTriggers = useRef([]);
+
+    useEffect(() => {
+        toggleCompleted(true);
+    }, []);
+
     const { contextSafe } = useGSAP(
         () => {
+            console.log('completed:', completed)
             if (!completed) return;
+
+            document.fonts.ready.then(() => {
+                const split = SplitText.create(titleRef.current, {
+                    type: "words",
+                    aria: "hidden",
+                });
+                gsap.from(split.words, {
+                    opacity: 0,
+                    y: 20,
+                    duration: 1,
+                    stagger: 0.08,
+                    ease: "sine.out",
+                });
+            });
+
             let panels = gsap.utils.toArray('.panel'),
                 scrollStarts = [0],
                 snapScroll = value => value; // for converting a pixel-based scroll value to the closest panel scroll position
@@ -66,8 +91,8 @@ export default function App() {
         <main ref={main}>
             <section className="description panel light">
                 <div>
-                    <h1>Layered pinning</h1>
-                    <p>Use pinning to layer panels on top of each other as you scroll.</p>
+                    <h1 ref={titleRef}>Su boda en un Link</h1>
+                    <p>Hecha por alguien que también dijo "sí, acepto"</p>
                     <div className="scroll-down">
                         Scroll down<div className="arrow"></div>
                     </div>
