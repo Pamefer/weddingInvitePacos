@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { COUPLES } from './data/couples';
+import { ENTRANCES } from './entrances';
 import Invitation from './views/Invitation';
-import Entrance from './views/Entrance';
 import { useState } from 'react';
 
 function CoupleWrapper() {
@@ -12,9 +12,10 @@ function CoupleWrapper() {
     if (!data) {
         return <div>Invitación no encontrada</div>;
     }
+    const EntranceComponent = ENTRANCES[data.THEME?.entrance] || ENTRANCES.classic;
 
     return isFirstTime
-        ? <Entrance setIsFirstTime={setIsFirstTime} />
+        ? <EntranceComponent setIsFirstTime={setIsFirstTime} data={data} />
         : <Invitation data={data} />;
 }
 export default CoupleWrapper;

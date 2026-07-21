@@ -1,7 +1,7 @@
-import './Entrance.css';
-import { MEDIA } from '../labels';
+import './EntranceClassic.css';
+import { MEDIA } from '../labels'
 
-const Entrance = ({ setIsFirstTime }) => {
+const EntranceClassic = ({ setIsFirstTime }) => {
 
     return (
         <div className="App">
@@ -16,4 +16,4 @@ const Entrance = ({ setIsFirstTime }) => {
     );
 };
 
-export default Entrance;
+export default EntranceClassic;

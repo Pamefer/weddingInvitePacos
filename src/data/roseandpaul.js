@@ -1,3 +1,7 @@
+export const THEME = {
+    entrance: 'stationery',   // usa tu Entrance actual
+};
+
 export const LABELS = {
     nosCasamos: "¡Nos casamos!",
     initialPhrase: "Lo que empezó como una amistad creció con el tiempo... se volvió complicidad, amor, y ahora, un para siempre.",
