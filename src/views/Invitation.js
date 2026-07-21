@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 import Carousel from './Carousel';
 
-import '../App.css';
+import './Invitation.css';
 import Pause from '../components/Pause';
 import Play from '../components/Play';
 import { LABELS, EVENT, MEDIA } from '../labels';

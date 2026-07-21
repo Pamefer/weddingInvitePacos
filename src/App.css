@@ -1,350 +1,90 @@
-.App {
-  text-align: center;
-  font-family: "Cormorant Garamond", serif;
-}
-
-.audio-controls {
-  height: 50px;
-  bottom: 20px;
-  right: 20px;
-  width: 50px;
-  background: #413b3b;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  position: fixed;
-  cursor: pointer;
-  z-index: 999;
-}
-
-.buttonMusic {
-  width: 30px;
-  height: 20px;
-  fill: #b55663;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 100%;
-  margin-left: 8px;
-}
-
-.buttonMusic:hover {
-  fill: #d98471; /* optional hover color */
-}
-.firstSection {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  font-family: "Playfair Display", serif;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem;
-  box-sizing: border-box;
-  text-align: center;
-}
-.background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+html,
+body {
+  background-color: white;
+  color: black;
+  margin: 0;
   height: 100%;
-  object-fit: cover;
-  filter: grayscale(80%);
-  z-index: -1;
-  object-position: 50% 31%;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
 }
 
-.namesContainer {
+.panel {
+  height: 100vh;
+  position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  flex-direction: column;
-}
-
-.pame {
-  /* align-self: start; */
-  margin: 0;
-  padding: 0;
-}
-.cosme {
-  margin: 0;
-  padding: 0;
-}
-
-@media (max-width: 500px) {
-  .pame {
-    align-self: start;
-  }
-  .cosme {
-    align-self: end;
-  }
-}
-.nuestraBoda {
-  width: 11rem;
-  display: flex;
-  flex-direction: column;
-  line-height: 31px;
-  align-self: center;
-  margin: 2rem 0 3rem 0;
-}
-
-.namesContainer p {
-  font-size: 4.5rem;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
-  font-family: "Parisienne", cursive;
-
-  font-optical-sizing: auto;
-
-  margin-top: 15px;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 80%;
-}
-.namesdate {
-  line-height: 3px;
-}
-.dateFirst,
-.mateo {
-  font-size: 24px !important;
-}
-.mateo {
-  margin-top: 10px !important;
-}
-.quoteContainer p {
-  font-size: 4rem;
-  margin: 0.3rem;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-  letter-spacing: 1px;
-}
-
-.quotePhrase {
-  font-family: "Italianno", cursive;
-  /* font-family: "Mea Culpa", cursive; */
-  /* font-family: "Monsieur La Doulaise", cursive; */
-  font-weight: 400;
-  font-style: normal;
-  line-height: 80%;
-}
-
-.secondSection {
-  margin: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  text-align: center;
 }
 
 .section {
-  padding: 3rem;
+  width: 100%;
+  height: 100vh;
 }
 
-.smallText {
-  font-size: 15px;
-}
-.normalText {
-  font-size: 22px;
+.purple {
+  height: 50vh;
+  min-height: 50vh;
 }
 
-.cursiveTextMea {
-  /* font-family: "Great Vibes", cursive; */
-  font-family: "Mea Culpa", cursive;
+* {
   margin: 0;
-  font-size: 47px;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.subtitle {
-  font-size: 40px;
-  margin-bottom: 35px;
+.panel {
+  min-height: 100vh;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  color: black;
 }
 
-.nuestraBoda {
-  width: 11rem;
-  display: flex;
-  flex-direction: column;
-  line-height: 31px;
-  align-self: center;
-  margin: 2rem 0 3rem 0;
+/* SCROLL DOWN */
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: black;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 16px;
+  overflow: visible;
 }
-
-.line-start {
-  text-align: left;
-}
-
-.line-end {
-  text-align: right;
-}
-
-.normalBlock {
-  line-height: 0.5rem;
-}
-
-.iconos {
-  align-content: center;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.iconos img {
-  width: 7rem;
-  height: auto;
-  margin-left: 1rem;
-}
-.iconos img {
-  display: block;
-  border-radius: inherit;
-  object-position: center center;
-  object-fit: cover;
-  transform: rotate(-14deg);
-}
-
-.buttonweb {
-  width: 50%;
-}
-
-.bola {
-  margin-top: 20px;
-}
-.maps-button {
-  display: inline-block;
-  background-color: #b55663;
-  color: white;
-  text-decoration: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease;
-}
-
-.maps-button:hover {
-  background-color: #98404f;
-}
-
-.centralCircle {
-  width: 278px;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-.centralSquare {
-  height: 500px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* .textDobleColumn {
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  justify-content: center;
-  margin: 0 2rem;
-} */
-
-.thirdSection {
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
-  justify-content: center;
-  align-items: center;
-  background: rgba(249, 230, 227, 0.4);
-  border-radius: 67px 0;
-}
-
-.normalPic {
-  width: 100%;
-}
-.picturesInline {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-}
-
-.picturesInline img {
-  width: 400px;
-  height: auto;
-  object-fit: cover;
-}
-
-.gradas {
-  width: 100%;
-}
-@media (max-width: 500px) {
-  .centralSquare {
-    width: 100%;
-    object-fit: cover;
-  }
-}
-@media (min-width: 500px) {
-  .container-gradas {
-    height: 400px; /* Lo que quieres mostrar */
-    overflow: hidden;
-    position: relative;
-  }
-  .gradas {
-    height: 1000px;
-    width: 100%;
-    object-fit: cover;
-    object-position: bottom;
-  }
-}
-.whatsapp-button {
-  background-color: #25d366;
-  color: white;
-  font-family: "Playfair Display", serif;
-  padding: 14px 24px;
-  font-size: 1.1rem;
-  text-decoration: none;
-  border-radius: 30px;
-  display: inline-block;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-}
-
-.whatsapp-button:hover {
-  background-color: #1da851;
-}
-
-.manitos {
-  width: 80%;
-  height: 900px;
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-
-@media (max-width: 500px) {
-  .manitos {
-    width: 100%;
-    object-fit: cover;
-    height: unset;
-  }
-}
-
-.circle {
-  border-radius: 50%;
+.scroll-down .arrow {
+  position: relative;
+  top: -4px;
+  margin: 0 auto;
   width: 20px;
   height: 20px;
-  border: 1px solid black;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KPHBhdGggZmlsbD0iYmxhY2siIGQ9Ik00ODMuMiwxOTIuMmMtMjAuNS0yMC41LTUzLjUtMjAuOC03My43LTAuNkwyNTcsMzQ0LjFMMTA0LjUsMTkxLjZjLTIwLjItMjAuMi01My4yLTE5LjktNzMuNywwLjYKCWMtMjAuNSwyMC41LTIwLjgsNTMuNS0wLjYsNzMuN2wxOTAsMTkwYzEwLjEsMTAuMSwyMy40LDE1LjEsMzYuOCwxNWMxMy4zLDAuMSwyNi43LTQuOSwzNi44LTE1bDE5MC0xOTAKCUM1MDMuOSwyNDUuNyw1MDMuNywyMTIuNyw0ODMuMiwxOTIuMnoiLz4KPC9zdmc+);
+  background-size: contain;
 }
 
-.blanco {
+.light {
   background-color: white;
-}
-.rosa {
-  background-color: #c48e91;
+  color: black;
 }
 
-.rojo {
-  background-color: rgb(161, 2, 2);
+/* colors */
+.purple {
+  background-color: purple;
+}
+.red {
+  background-color: red;
+}
+.orange {
+  background-color: orange;
 }
 
-.colorsWedding {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  column-gap: 10px;
+.dark {
+  background-color: black;
+  color: white;
+}
+
+.light {
+  background-color: white;
+  color: black;
 }
