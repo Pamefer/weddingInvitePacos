@@ -88,3 +88,32 @@ body {
   background-color: white;
   color: black;
 }
+
+.mainPanel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 60px;
+}
+.mainPanel > div:first-child {
+  flex: 0 0 55%;
+  max-width: 55%;
+  align-items: left;
+}
+
+.mainPanel > div:last-child {
+  flex: 0 0 45%;
+  max-width: 45%;
+}
+h1.logoTitle {
+  font-family: "Fraunces", serif;
+  font-weight: 900;
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  margin: 0;
+}
+.title-swap {
+  margin-bottom: 50px;
+}

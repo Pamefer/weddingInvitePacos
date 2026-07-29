@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
@@ -7,43 +7,76 @@ import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
 
 import TransitionContext from './context/TransitionContext';
+
 gsap.registerPlugin(SplitText, ScrollTrigger, ScrollToPlugin);
+
 export default function App() {
     const main = useRef();
-    const titleRef = useRef();
+    const esRef = useRef();
+    const enRef = useRef();
     const { completed, toggleCompleted } = useContext(TransitionContext);
-
     const scrollTween = useRef();
     const snapTriggers = useRef([]);
-
+    const activeIndex = useRef(0); // 0 = español, 1 = inglés
+    const intervalRef = useRef(null);
     useEffect(() => {
         toggleCompleted(true);
     }, []);
 
     const { contextSafe } = useGSAP(
         () => {
-            console.log('completed:', completed)
             if (!completed) return;
 
             document.fonts.ready.then(() => {
-                const split = SplitText.create(titleRef.current, {
-                    type: "words",
-                    aria: "hidden",
-                });
-                gsap.from(split.words, {
+                if (!esRef.current || !enRef.current) return;
+
+                const splitEs = SplitText.create(esRef.current, { type: "words", aria: "hidden" });
+                const splitEn = SplitText.create(enRef.current, { type: "words", aria: "hidden" });
+
+                // estado inicial: español visible, inglés oculto
+                gsap.set(enRef.current, { opacity: 0 });
+                gsap.from(splitEs.words, {
                     opacity: 0,
                     y: 20,
                     duration: 1,
                     stagger: 0.08,
                     ease: "sine.out",
                 });
+
+                const swap = contextSafe(() => {
+                    const showingEs = activeIndex.current === 0;
+                    const outEl = showingEs ? esRef.current : enRef.current;
+                    const inEl = showingEs ? enRef.current : esRef.current;
+                    const inWords = showingEs ? splitEn.words : splitEs.words;
+
+                    const tl = gsap.timeline();
+                    tl.to(outEl, { opacity: 0, y: -10, duration: 0.4, ease: "sine.in" })
+                        .set(inEl, { opacity: 1, y: 0 })
+                        .from(inWords, {
+                            opacity: 0,
+                            y: 20,
+                            duration: 0.7,
+                            stagger: 0.06,
+                            ease: "sine.out",
+                        });
+
+                    activeIndex.current = showingEs ? 1 : 0;
+                });
+                intervalRef.current = setInterval(swap, 3000); // ← guarda el ID aquí, no en el .then()
+
+                return () => {
+                    if (intervalRef.current) {
+                        clearInterval(intervalRef.current);
+                        intervalRef.current = null;
+                    }
+                };
             });
 
+            // resto de tu código de panels/snap scroll, sin cambios
             let panels = gsap.utils.toArray('.panel'),
                 scrollStarts = [0],
-                snapScroll = value => value; // for converting a pixel-based scroll value to the closest panel scroll position
+                snapScroll = value => value;
 
-            // create a ScrollTrigger for each panel that's only concerned about figuring out when its top hits the top of the viewport. We'll use the "start" of that ScrollTrigger to figure out snapping positions.
             panels.forEach((panel, i) => {
                 snapTriggers.current[i] = ScrollTrigger.create({
                     trigger: panel,
@@ -51,19 +84,17 @@ export default function App() {
                 });
             });
 
-            // once all the triggers have calculated their start/end, create the snap function that'll accept an overall progress value for the overall page, and then return the closest panel snapping spot based on the direction of scroll
             ScrollTrigger.addEventListener("refresh", () => {
-                scrollStarts = snapTriggers.current.map(trigger => trigger.start); // build an Array with just the starting positions where each panel hits the top of the viewport
-                snapScroll = ScrollTrigger.snapDirectional(scrollStarts); // get a function that we can feed a pixel-based scroll value to and a direction, and then it'll spit back the closest snap position (in pixels)
+                scrollStarts = snapTriggers.current.map(trigger => trigger.start);
+                snapScroll = ScrollTrigger.snapDirectional(scrollStarts);
             });
 
             ScrollTrigger.observe({
                 type: "wheel,touch",
                 onChangeY(self) {
                     if (!scrollTween.current) {
-                        // find the closest snapping spot based on the direction of scroll
                         let scroll = snapScroll(self.scrollY() + self.deltaY, self.deltaY > 0 ? 1 : -1);
-                        goToSection(scrollStarts.indexOf(scroll)); // scroll to the index of the associated panel
+                        goToSection(scrollStarts.indexOf(scroll));
                     }
                 }
             })
@@ -78,7 +109,6 @@ export default function App() {
     );
 
     const goToSection = contextSafe((i) => {
-        console.log("scroll to", i);
         scrollTween.current = gsap.to(window, {
             scrollTo: { y: snapTriggers.current[i].start, autoKill: false },
             duration: 1,
@@ -91,8 +121,21 @@ export default function App() {
         <main ref={main}>
             <section className="description panel light">
                 <div>
-                    <h1 ref={titleRef}>Su boda en un Link</h1>
-                    <p>Hecha por alguien que también dijo "sí, acepto"</p>
+                    <div className='mainPanel'>
+                        <div>
+                            <h1 className='logoTitle'>Linkove</h1>
+                        </div>
+                        <div>
+                            <div className="title-swap">
+                                <h1 ref={esRef} className="title-lang">Su boda en un Link</h1>
+                                <h1 ref={enRef} className="title-lang title-lang-en">Your wedding in one Link</h1>
+                            </div>
+                            <p>Hecha por alguien que también dijo</p>
+                            <p>"sí, acepto"</p>
+                        </div>
+                    </div>
+
+
                     <div className="scroll-down">
                         Scroll down<div className="arrow"></div>
                     </div>
@@ -105,4 +148,3 @@ export default function App() {
         </main>
     );
 }
-
